@@ -30,6 +30,21 @@ document.addEventListener("DOMContentLoaded", function() {
             hexInput.id = "hex-input";
             hexInput.placeholder = "Enter HEX Code"
             hexForm.appendChild(hexInput);
+
+            const submitButton = document.createElement("button");
+            submitButton.type = ("submit");
+            submitButton.textContent = ("Submit");
+            hexForm.appendChild(submitButton);
+
+            hexForm.addEventListener("submit", (event) => {
+                event.preventDefault();
+                const input = hexInput.value;
+                console.log(input);
+
+                hexForm.reset();
+            })
+
+
         })
         .catch(error => console.error("Color fetch error:", error));
     }
