@@ -13,13 +13,9 @@ document.addEventListener("DOMContentLoaded", function() {
             colorImage.src = colors.image.bare;
             colorDiv.appendChild(colorImage)
 
-            const colorName = document.createElement("p");
-            colorName.textContent = colors.name.value || "Unknown Color"
-            colorDiv.appendChild(colorName);
-
-            colorHex = document.createElement("p")
-            colorHex.textContent = colors.hex.value;
-            colorDiv.appendChild(colorHex);
+            const colorInfo = document.createElement("p");
+            colorInfo.textContent = `${colors.name.value} - ${colors.hex.value}` || "Unknown Color"
+            colorDiv.appendChild(colorInfo)
 
             const hexForm = document.createElement("form");
             hexForm.id = "hex-form";
