@@ -1,13 +1,17 @@
 const baseUrl = "https://www.thecolorapi.com/id?hex=24B1E0";
 
 document.addEventListener("DOMContentLoaded", function() {
-    function fetchColor() {
+    function fetchColor() { // PROJECT //
         fetch(baseUrl)
         .then(response => response.json())
         .then(data => {
             console.log("Color Data", data);
             const colors = data
             const colorDiv = document.getElementById("color-div");
+            
+            const colorImage = document.createElement('img');
+            colorImage.src = colors.image.bare;
+            colorDiv.appendChild(colorImage)
 
             const colorName = document.createElement("p");
             colorName.textContent = colors.name.value || "Unknown Color"
@@ -16,10 +20,6 @@ document.addEventListener("DOMContentLoaded", function() {
             colorHex = document.createElement("p")
             colorHex.textContent = colors.hex.value;
             colorDiv.appendChild(colorHex);
-
-            const colorImage = document.createElement('img');
-            colorImage.src = colors.image.named;
-            colorDiv.appendChild(colorImage)
 
             const hexForm = document.createElement("form");
             hexForm.id = "hex-form";
