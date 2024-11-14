@@ -33,8 +33,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 hexForm.appendChild(submitButton);
 
                 const historyHeading = document.createElement("h3")
-                historyHeading.id = "history-heading"
-                historyHeading.textContent = "Search History"
+                historyHeading.id = "history-heading";
+                historyHeading.textContent = "Search History";
                 colorDiv.appendChild(historyHeading)
 
                 hexForm.addEventListener("submit", (event) => {
@@ -42,9 +42,15 @@ document.addEventListener("DOMContentLoaded", function () {
                     const input = hexInput.value;
                     console.log(input);
 
+                    historyList = document.createElement("ul");
+                    historyList.id = "history-list";
+                    historyList.textContent = `${colors.name.value} - ${colors.hex.value}`;
+
+                    colorDiv.appendChild(historyList);
+                    console.log(historyList)
+
                     hexForm.reset();
                 })
-
 
             })
             .catch(error => console.error("Color fetch error:", error));
