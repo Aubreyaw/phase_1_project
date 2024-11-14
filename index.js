@@ -20,6 +20,16 @@ document.addEventListener("DOMContentLoaded", function() {
             const colorImage = document.createElement('img');
             colorImage.src = colors.image.named;
             colorDiv.appendChild(colorImage)
+
+            const hexForm = document.createElement("form");
+            hexForm.id = "hex-form";
+            colorDiv.appendChild(hexForm);
+
+            const hexInput = document.createElement("input");
+            hexInput.type = "text";
+            hexInput.id = "hex-input";
+            hexInput.placeholder = "Enter HEX Code"
+            hexForm.appendChild(hexInput);
         })
         .catch(error => console.error("Color fetch error:", error));
     }
