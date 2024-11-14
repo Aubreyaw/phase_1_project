@@ -6,7 +6,20 @@ document.addEventListener("DOMContentLoaded", function() {
         .then(response => response.json())
         .then(data => {
             console.log("Color Data", data);
-            
+            const colors = data
+            const colorDiv = document.getElementById("color-div");
+
+            const colorName = document.createElement("p");
+            colorName.textContent = colors.name.value || "Unknown Color"
+            colorDiv.appendChild(colorName);
+
+            colorHex = document.createElement("p")
+            colorHex.textContent = colors.hex.value;
+            colorDiv.appendChild(colorHex);
+
+            const colorImage = document.createElement('img');
+            colorImage.src = colors.image.named;
+            colorDiv.appendChild(colorImage)
         })
         .catch(error => console.error("Color fetch error:", error));
     }
